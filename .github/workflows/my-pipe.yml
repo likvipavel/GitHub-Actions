@@ -1,6 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
 name: GitHub-Actions-1
+env:
+  APPLICATION_NAME: "MyFlask"
+  PACKAGE_NAME: "flask_deploy_ver_${{ github.sha }}"
+  
 
 on:
   push:
@@ -14,7 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Hello, World!
+      - name: Print few variables
+        run: |
+          echo "HI, ${{ env.APPLICATION_NAME }}"
+          echo "My name: ${{ env.PACKAGE_NAME }}"
+          echo "SHA number: ${{ github.sha }}"
 
   my_deploy:
     runs-on: ubuntu-18.04
