@@ -52,7 +52,7 @@ jobs:
            echo Add other actions to build,
            echo test, and deploy your project.
            echo "${{ env.JOB_VAR }}"
-           echo "${{ env.ranner_var }}"
+           echo "$ranner_var"
          env:
           ranner_var: "11111111111"
     
