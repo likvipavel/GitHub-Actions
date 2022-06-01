@@ -19,14 +19,25 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, World!
+        
       - name: Print few variables
         run: |
           echo "HI, ${{ env.APPLICATION_NAME }}"
           echo "My name: ${{ env.PACKAGE_NAME }}"
           echo "SHA number: ${{ github.sha }}"
+          
       - name: List current folder
         run: ls -la
-
+        
+      - name: Cloning my repo 
+        uses: actions/checkout@v1
+        
+      - name: Repeat List current folder
+        run: ls -la
+        
+      - name: Test package available
+        run: aws
+        
   my_deploy:
     runs-on: ubuntu-18.04
     needs: [my_testing]
