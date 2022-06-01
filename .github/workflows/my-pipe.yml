@@ -1,0 +1,26 @@
+# This is a basic workflow to help you get started with Actions
+
+name: GitHub-Actions-1
+
+on:
+  push:
+    branches: [ main ]
+    
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  my_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+  my_deploy:
+    runs-on: ubuntu-18.04
+    steps:
+       - name: Run a multi-line script
+         run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+    
