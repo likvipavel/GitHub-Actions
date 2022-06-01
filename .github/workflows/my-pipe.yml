@@ -16,6 +16,8 @@ on:
 jobs:
   my_testing:
     runs-on: ubuntu-latest
+    env:
+      JOB_VAR: "my_testing"
     steps:
       - name: Run a one-line script
         run: echo Hello, World!
@@ -25,6 +27,7 @@ jobs:
           echo "HI, ${{ env.APPLICATION_NAME }}"
           echo "My name: ${{ env.PACKAGE_NAME }}"
           echo "SHA number: ${{ github.sha }}"
+          echo "${{ env.JOB_VAR }}"
           
       - name: List current folder
         run: ls -la
@@ -40,10 +43,16 @@ jobs:
         
   my_deploy:
     runs-on: ubuntu-18.04
+    env:
+      JOB_VAR: "my_deploy"
     needs: [my_testing]
     steps:
        - name: Run a multi-line script
          run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+           echo Add other actions to build,
+           echo test, and deploy your project.
+           echo "${{ env.JOB_VAR }}"
+           echo "${{ env.ranner_var }}"
+         env:
+          ranner_var: "11111111111"
     
