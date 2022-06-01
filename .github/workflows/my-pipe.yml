@@ -36,7 +36,7 @@ jobs:
         run: ls -la
         
       - name: Test package available
-        run: aws
+        run: aws --version
         
   my_deploy:
     runs-on: ubuntu-18.04
