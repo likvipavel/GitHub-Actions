@@ -24,6 +24,8 @@ jobs:
           echo "HI, ${{ env.APPLICATION_NAME }}"
           echo "My name: ${{ env.PACKAGE_NAME }}"
           echo "SHA number: ${{ github.sha }}"
+      - name: List current folder
+        run: ls -la
 
   my_deploy:
     runs-on: ubuntu-18.04
